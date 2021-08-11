@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
 
     @IBAction func randomBtnCLicked(_ sender: Any) {
         let random = Int.random(in: 1...82)
-        personApi.getRandomPersonURL(id: random) { (person) in
+        personApi.getRandomPersonAlamofire(id: random) { (person) in
             if let person = person {
                 self.nameLbl.text = person.name
                 self.heightLbl.text = person.height
