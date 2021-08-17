@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BFB3C60C26C96B9E00F2BE3D /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB3C60B26C96B9E00F2BE3D /* StorageManager.swift */; };
+		BFB3C60E26C99E9500F2BE3D /* FadeEnabledBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB3C60D26C99E9500F2BE3D /* FadeEnabledBtn.swift */; };
+		BFB3C61026C9A2EE00F2BE3D /* HomeworldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB3C60F26C9A2EE00F2BE3D /* HomeworldViewController.swift */; };
+		BFB3C61226C9A2F900F2BE3D /* VehiclesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB3C61126C9A2F900F2BE3D /* VehiclesViewController.swift */; };
+		BFB3C61426C9A30600F2BE3D /* StarshipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB3C61326C9A30600F2BE3D /* StarshipsViewController.swift */; };
+		BFB3C61626C9A31000F2BE3D /* FilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB3C61526C9A31000F2BE3D /* FilmsViewController.swift */; };
 		BFCF8B2826BEF57B000C65E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF8B2726BEF57B000C65E6 /* AppDelegate.swift */; };
 		BFCF8B2A26BEF57B000C65E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF8B2926BEF57B000C65E6 /* SceneDelegate.swift */; };
 		BFCF8B2C26BEF57B000C65E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF8B2B26BEF57B000C65E6 /* MainViewController.swift */; };
@@ -22,6 +28,12 @@
 /* Begin PBXFileReference section */
 		188D1E9629B57EB20330EF37 /* Pods-starwarsAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starwarsAPI.release.xcconfig"; path = "Target Support Files/Pods-starwarsAPI/Pods-starwarsAPI.release.xcconfig"; sourceTree = "<group>"; };
 		27B1BEE0E112EF34BA282244 /* Pods-starwarsAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starwarsAPI.debug.xcconfig"; path = "Target Support Files/Pods-starwarsAPI/Pods-starwarsAPI.debug.xcconfig"; sourceTree = "<group>"; };
+		BFB3C60B26C96B9E00F2BE3D /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		BFB3C60D26C99E9500F2BE3D /* FadeEnabledBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeEnabledBtn.swift; sourceTree = "<group>"; };
+		BFB3C60F26C9A2EE00F2BE3D /* HomeworldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworldViewController.swift; sourceTree = "<group>"; };
+		BFB3C61126C9A2F900F2BE3D /* VehiclesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesViewController.swift; sourceTree = "<group>"; };
+		BFB3C61326C9A30600F2BE3D /* StarshipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsViewController.swift; sourceTree = "<group>"; };
+		BFB3C61526C9A31000F2BE3D /* FilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsViewController.swift; sourceTree = "<group>"; };
 		BFCF8B2426BEF57B000C65E6 /* starwarsAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = starwarsAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFCF8B2726BEF57B000C65E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFCF8B2926BEF57B000C65E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,8 +91,6 @@
 			children = (
 				BFCF8B3C26BEF817000C65E6 /* View */,
 				BFCF8B3B26BEF80E000C65E6 /* Model */,
-				BFCF8B2726BEF57B000C65E6 /* AppDelegate.swift */,
-				BFCF8B2926BEF57B000C65E6 /* SceneDelegate.swift */,
 				BFCF8B4026BF003B000C65E6 /* Constants */,
 				BFCF8B3D26BEFF19000C65E6 /* services */,
 				BFCF8B2D26BEF57B000C65E6 /* Main.storyboard */,
@@ -103,6 +113,11 @@
 			isa = PBXGroup;
 			children = (
 				BFCF8B2B26BEF57B000C65E6 /* MainViewController.swift */,
+				BFB3C60D26C99E9500F2BE3D /* FadeEnabledBtn.swift */,
+				BFB3C60F26C9A2EE00F2BE3D /* HomeworldViewController.swift */,
+				BFB3C61126C9A2F900F2BE3D /* VehiclesViewController.swift */,
+				BFB3C61326C9A30600F2BE3D /* StarshipsViewController.swift */,
+				BFB3C61526C9A31000F2BE3D /* FilmsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -111,6 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				BFCF8B3E26BEFF47000C65E6 /* NetworkManager.swift */,
+				BFB3C60B26C96B9E00F2BE3D /* StorageManager.swift */,
+				BFCF8B2726BEF57B000C65E6 /* AppDelegate.swift */,
+				BFCF8B2926BEF57B000C65E6 /* SceneDelegate.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -248,10 +266,16 @@
 			files = (
 				BFCF8B4426BF0330000C65E6 /* Person.swift in Sources */,
 				BFCF8B4226BF0055000C65E6 /* Constants.swift in Sources */,
+				BFB3C61026C9A2EE00F2BE3D /* HomeworldViewController.swift in Sources */,
 				BFCF8B2C26BEF57B000C65E6 /* MainViewController.swift in Sources */,
+				BFB3C60C26C96B9E00F2BE3D /* StorageManager.swift in Sources */,
 				BFCF8B2826BEF57B000C65E6 /* AppDelegate.swift in Sources */,
+				BFB3C61626C9A31000F2BE3D /* FilmsViewController.swift in Sources */,
 				BFCF8B2A26BEF57B000C65E6 /* SceneDelegate.swift in Sources */,
+				BFB3C60E26C99E9500F2BE3D /* FadeEnabledBtn.swift in Sources */,
 				BFCF8B3F26BEFF47000C65E6 /* NetworkManager.swift in Sources */,
+				BFB3C61426C9A30600F2BE3D /* StarshipsViewController.swift in Sources */,
+				BFB3C61226C9A2F900F2BE3D /* VehiclesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
