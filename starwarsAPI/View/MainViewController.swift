@@ -15,6 +15,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var hairLbl: UILabel!
     @IBOutlet weak var birthYearLbl: UILabel!
     @IBOutlet weak var genderLbl: UILabel!
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
 
 //Labels for buttons
     @IBOutlet weak var homeworldLBtn: UIButton!
@@ -24,6 +27,8 @@ class MainViewController: UIViewController {
     
     
     var personApi = PersonApi()
+    var person: Person?
+    
     private var persons: [Person] = [] // empty array for UserDefaults loading data
 
     override func viewDidLoad() {
@@ -36,9 +41,12 @@ class MainViewController: UIViewController {
 
     @IBAction func randomBtnCLicked(_ sender: Any) {
         let random = Int.random(in: 1...82)
+        spinner.startAnimating()
         personApi.getRandomPersonAlamofire(id: random) { (person) in
+            self.spinner.stopAnimating()
             if let person = person {
                 self.setupView(person: person)
+                self.person = person
                 //save to UserDefaults
                 //StorageManger.shared.save(person: person)
             }
@@ -70,21 +78,16 @@ class MainViewController: UIViewController {
         filmsBtn.isEnabled = !person.filmsURL.isEmpty
     }
     
-// MARK: - Buttons
-    
-    @IBAction func homeWorldCLicked(_ sender: Any) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if var destionation = segue.destination as? PersonProtocol {
+            destionation.person = person
+        }
     }
-    
-    
-    @IBAction func vehiclisClicked(_ sender: Any) {
-    }
-    
-    
-    @IBAction func startshipsClicked(_ sender: Any) {
-    }
-    
-    
-    @IBAction func filmsClicked(_ sender: Any) {
-    }
-    
+}
+
+
+//MARK: - Protocols and extensions
+
+protocol PersonProtocol {
+    var person: Person! {get set}
 }

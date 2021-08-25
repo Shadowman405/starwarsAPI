@@ -13,9 +13,14 @@ let BASE_URL = "https://swapi.dev/api/"
 let PERSON_URL = BASE_URL + "people/"
 
 typealias PersonRsponseCompletion = (Person?) -> Void
+typealias HomeworldCOmpletion = (Homeworld?) -> Void
+typealias VehicleResponseCompletion = (Vehicle?) -> Void
+typealias StarshipResponseCompletion = (Starship?) -> Void
+typealias FilmResponseCompletion = (Film?) -> Void
+
+//MARK: - Person class
 
 class PersonApi {
-// MARK: - Alamofire reuqests
     
     func getRandomPersonAlamofire(id: Int, completion: @escaping PersonRsponseCompletion) {
         guard let url = URL(string: "\(PERSON_URL)\(id)") else {return}
@@ -53,49 +58,100 @@ class PersonApi {
         let person = Person(name: name, height: height, mass: mass, hair: hair, birthYear: birthYear, gender: gender, homeworldURL: homeworld, filmsURL: films, vehicleURL: vehicles, starshipURL: starships)
         return person
     }
-    
-// MARK: - URL Session methods
-    /*
-    func getRandomPersonURL(id: Int, completion: @escaping PersonRsponseCompletion) {
-        guard let url = URL(string: "\(PERSON_URL)\(id)") else {return}
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            guard error == nil else {
-                debugPrint(error.debugDescription)
+}
+
+//MARK: - Homeworld Class
+
+class HomeworldAPI {
+    func getHomeworld(url: String, completion: @escaping HomeworldCOmpletion) {
+        guard let url = URL(string: url) else {return}
+        AF.request(url).responseJSON { (response) in
+            if let error = response.error {
+                debugPrint(error.localizedDescription)
+                completion (nil)
+                return
+            }
+            guard let data = response.data else {return}
+            let jsonDEcoder = JSONDecoder()
+            do {
+                let homeworld = try jsonDEcoder.decode(Homeworld.self, from: data)
+                completion(homeworld)
+            } catch {
+                debugPrint(error.localizedDescription)
+                completion (nil)
+            }
+        }
+    }
+}
+
+//MARK: - Vehicle Class
+
+class VehicleAPI{
+    func getVehicle(url: String, completion: @escaping VehicleResponseCompletion) {
+        guard let url = URL(string: url) else {return}
+        AF.request(url).responseJSON { (response) in
+            if let error = response.error {
+                debugPrint(error.localizedDescription)
+                completion (nil)
+                return
+            }
+            guard let data = response.data else {return}
+            let jsonDEcoder = JSONDecoder()
+            do {
+                let vehicle = try jsonDEcoder.decode(Vehicle.self, from: data)
+                completion(vehicle)
+            } catch {
+                debugPrint(error.localizedDescription)
+                completion (nil)
+            }
+        }
+    }
+}
+
+//MARK: - Starship class
+
+class StarshipAPI {
+    func getStarship(url: String, completion: @escaping StarshipResponseCompletion) {
+        guard let url = URL(string: url) else {return}
+        AF.request(url).responseJSON { (response) in
+            if let error = response.error {
+                debugPrint(error.localizedDescription)
                 completion(nil)
                 return
             }
-            
-            guard let data = data else {return}
+            guard let data = response.data else {return}
+            let jsonDecoder = JSONDecoder()
             do {
-                let jsonAny = try JSONSerialization.jsonObject(with: data, options: [])
-                guard let json = jsonAny as? [String: Any] else {return}
-                let person = self.parsePerson(json: json)
-                DispatchQueue.main.async {
-                    completion(person)
-                }
-            } catch {
+                let vehicle = try jsonDecoder.decode(Starship.self, from: data)
+                completion(vehicle)
+            }catch {
                 debugPrint(error.localizedDescription)
-                return
+                completion(nil)
             }
         }
-        task.resume()
     }
-    
-    private func parsePerson(json: [String: Any]) -> Person {
-        let name = json["name"] as? String ?? ""
-        let height = json["height"] as? String ?? ""
-        let mass = json["mass"] as? String ?? ""
-        let hair = json["hair_color"] as? String ?? ""
-        let birthYear = json["birth_year"] as? String ?? ""
-        let gender = json["gender"] as? String ?? ""
-        let homeworld = json["homeworld"] as? String ?? ""
-        let films = json["films"] as? [String] ?? [String]()
-        let vehicles = json["vehicles"] as? [String] ?? [String]()
-        let starships = json["starships"] as? [String] ?? [String]()
-        
-        let person = Person(name: name, height: height, mass: mass, hair: hair, birthYear: birthYear, gender: gender, homeworldURL: homeworld, filmsURL: films, vehicleURL: vehicles, starshipURL: starships)
-        return person
+}
+
+//MARK: - Film class
+
+class FilmAPI {
+    func getFilm (url: String, completion: @escaping FilmResponseCompletion) {
+        guard let url = URL(string: url) else {return}
+        AF.request(url).responseJSON { (response) in
+            if let error = response.error {
+                debugPrint(error.localizedDescription)
+                completion(nil)
+                return
+            }
+            guard let data = response.data else {return}
+            let jsonDecoder = JSONDecoder()
+            do {
+                let film = try jsonDecoder.decode(Film.self, from: data)
+                completion(film)
+            } catch {
+                debugPrint(error.localizedDescription)
+                completion(nil)
+            }
+        }
     }
- */
 }
